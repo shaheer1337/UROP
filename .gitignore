@@ -1,0 +1,15 @@
+# Local / large data — do not commit
+data/
+processed/
+
+# Secrets and local tooling
+.env
+*.pyc
+__pycache__/
+.venv/
+.DS_Store
+
+# Local QGIS connection / project files
+QGIS.xml
+*.qgz
+*.qgs

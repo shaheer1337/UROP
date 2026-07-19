@@ -1,0 +1,22 @@
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: urop1000-postgis
+    environment:
+      POSTGRES_DB: hindcast
+      POSTGRES_USER: hindcast
+      POSTGRES_PASSWORD: hindcast
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      - ./processed:/processed:ro
+      - ./sql:/sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hindcast -d hindcast"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgis_data:
