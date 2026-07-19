@@ -1,4 +1,4 @@
-# UROP1000 — PolyU SCS hindcast nodes (PostGIS + QGIS)
+# PolyU SCS hindcast nodes (PostGIS + QGIS)
 
 Manage SCHISM/WWMIII hindcast **mesh nodes** in PostgreSQL/PostGIS, query by geographic range (e.g. Hong Kong), and visualise in QGIS.
 
