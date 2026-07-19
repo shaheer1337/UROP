@@ -57,11 +57,6 @@ WHERE geom && ST_MakeEnvelope(
     4326
 );
 
-\echo ''
-\echo '=== C3) Via nodes_hong_kong view ==='
-EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)
-SELECT node_id FROM nodes_hong_kong;
-
 \pset tuples_only off
 \echo ''
 \echo '=== Result counts (same ranges) ==='

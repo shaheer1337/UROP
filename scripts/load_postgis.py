@@ -135,14 +135,11 @@ def main() -> None:
     )
     copy_csv("times", ["time_id", "time_utc"], times[["time_id", "time_utc"]])
 
-    psql((ROOT / "sql" / "02_hong_kong_view.sql").read_text())
-
     psql(
         """
         SELECT 'nodes' AS tbl, COUNT(*) AS n FROM nodes
         UNION ALL SELECT 'mesh_faces', COUNT(*) FROM mesh_faces
-        UNION ALL SELECT 'times', COUNT(*) FROM times
-        UNION ALL SELECT 'nodes_hong_kong', COUNT(*) FROM nodes_hong_kong;
+        UNION ALL SELECT 'times', COUNT(*) FROM times;
         """
     )
     print(
