@@ -28,7 +28,7 @@ python3 scripts/load_postgis.py
 
 **QGIS:** Layer → Add PostGIS Layer → `localhost:5432`, db/user/password `hindcast`. Add `nodes`.
 
-## Example area query (HK bbox)
+## Example area query
 
 ```sql
 SELECT node_id FROM nodes

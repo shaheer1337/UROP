@@ -22,7 +22,7 @@ Tiny table (15,523 points). All range lookups finish in milliseconds. Cost grows
 |-------|------:|-----------------:|----------------------:|
 | Tiny harbour | 159 | 0.24 ms | 0.18 ms |
 | Small inner HK | 2,585 | 0.81 ms | 0.61 ms |
-| Supervisor HK box | **7,362** | **0.56 ms** | **1.64 ms** |
+| HK region box | **7,362** | **0.56 ms** | **1.64 ms** |
 | Medium GBA | 10,942 | 0.78 ms | 1.72 ms |
 | Large coastal | 12,504 | 0.80 ms | 1.55 ms |
 | Full mesh | 15,523 | 0.34 ms | — |
@@ -33,7 +33,7 @@ Tiny table (15,523 points). All range lookups finish in milliseconds. Cost grows
 
 - **Simple bbox → node IDs:** tabular `lon`/`lat` (slightly faster here).
 - **Maps / richer spatial ops:** PostGIS `geom`.
-- Gap is ~2–3× on the HK box but still &lt; 2 ms — not a bottleneck.
+- Gap is ~2–3× on mid-size boxes but still &lt; 2 ms — not a bottleneck.
 
 ```sql
 -- preferred for axis-aligned boxes today

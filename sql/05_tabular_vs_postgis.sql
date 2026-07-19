@@ -18,7 +18,7 @@ DECLARE
   ranges text[][] := ARRAY[
     ARRAY['A_tiny', '114.10', '22.25', '114.25', '22.35'],
     ARRAY['B_small', '113.90', '22.15', '114.40', '22.50'],
-    ARRAY['C_supervisor_HK', '113.650220', '22.030046', '114.659994', '22.699814'],
+    ARRAY['C_hk_region', '113.650220', '22.030046', '114.659994', '22.699814'],
     ARRAY['D_medium_GBA', '112.5', '21.5', '115.5', '23.5'],
     ARRAY['E_large_coastal', '110.0', '18.0', '120.0', '26.0']
   ];
@@ -85,7 +85,7 @@ FROM bench_cmp
 GROUP BY range_name, method, n_nodes
 ORDER BY
   CASE range_name
-    WHEN 'A_tiny' THEN 1 WHEN 'B_small' THEN 2 WHEN 'C_supervisor_HK' THEN 3
+    WHEN 'A_tiny' THEN 1 WHEN 'B_small' THEN 2 WHEN 'C_hk_region' THEN 3
     WHEN 'D_medium_GBA' THEN 4 WHEN 'E_large_coastal' THEN 5 ELSE 6 END,
   CASE method
     WHEN 'tabular_lon_lat' THEN 1 WHEN 'postgis_bbox' THEN 2
@@ -117,7 +117,7 @@ JOIN (
 ) i USING (range_name)
 ORDER BY
   CASE t.range_name
-    WHEN 'A_tiny' THEN 1 WHEN 'B_small' THEN 2 WHEN 'C_supervisor_HK' THEN 3
+    WHEN 'A_tiny' THEN 1 WHEN 'B_small' THEN 2 WHEN 'C_hk_region' THEN 3
     WHEN 'D_medium_GBA' THEN 4 WHEN 'E_large_coastal' THEN 5 ELSE 6 END;
 
 \echo ''

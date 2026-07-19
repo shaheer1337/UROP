@@ -22,7 +22,7 @@ WHERE lon BETWEEN 113.90 AND 114.40
   AND lat BETWEEN 22.15 AND 22.50;
 
 \echo ''
-\echo '=== C) Supervisor HK bbox ==='
+\echo '=== C) HK region bbox ==='
 EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)
 SELECT node_id FROM nodes
 WHERE lon BETWEEN 113.650220 AND 114.659994
@@ -48,7 +48,7 @@ EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)
 SELECT node_id FROM nodes;
 
 \echo ''
-\echo '=== C2) Supervisor HK bbox via PostGIS envelope + GIST ==='
+\echo '=== C2) HK region bbox via PostGIS envelope + GIST ==='
 EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)
 SELECT node_id FROM nodes
 WHERE geom && ST_MakeEnvelope(
@@ -64,7 +64,7 @@ SELECT 'A_tiny' AS rng, COUNT(*) AS n FROM nodes
 WHERE lon BETWEEN 114.10 AND 114.25 AND lat BETWEEN 22.25 AND 22.35
 UNION ALL SELECT 'B_small', COUNT(*) FROM nodes
 WHERE lon BETWEEN 113.90 AND 114.40 AND lat BETWEEN 22.15 AND 22.50
-UNION ALL SELECT 'C_supervisor_HK', COUNT(*) FROM nodes
+UNION ALL SELECT 'C_hk_region', COUNT(*) FROM nodes
 WHERE lon BETWEEN 113.650220 AND 114.659994 AND lat BETWEEN 22.030046 AND 22.699814
 UNION ALL SELECT 'D_medium_GBA', COUNT(*) FROM nodes
 WHERE lon BETWEEN 112.5 AND 115.5 AND lat BETWEEN 21.5 AND 23.5

@@ -4,7 +4,7 @@
 -- Full mesh
 SELECT COUNT(*) AS total_nodes FROM nodes;
 
--- Example area range (HK bbox) — tabular lon/lat
+-- Example area range — tabular lon/lat
 SELECT node_id, lon, lat
 FROM nodes
 WHERE lon BETWEEN 113.650220 AND 114.659994
